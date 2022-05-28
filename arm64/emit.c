@@ -259,9 +259,9 @@ loadcon(Con *c, int r, int k, FILE *f)
 		else
 			off[0] = 0;
 		p = c->local ? ".L" : "";
-		fprintf(f, "\tadrp\t%s, %s%s%s\n",
+		fprintf(f, "\tadrp\t%s, %s%s%s@PAGE\n",
 			rn, p, str(c->label), off);
-		fprintf(f, "\tadd\t%s, %s, #:lo12:%s%s%s\n",
+		fprintf(f, "\tadd\t%s, %s, #%s%s%s@PAGEOFF\n",
 			rn, rn, p, str(c->label), off);
 		return;
 	}

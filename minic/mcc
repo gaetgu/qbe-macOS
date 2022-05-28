@@ -32,7 +32,7 @@ fi
 
 
 $DIR/minic < $file          > /tmp/minic.ssa &&
-$QBE       < /tmp/minic.ssa > /tmp/minic.s   &&
+$QBE -t arm64 -Gm < /tmp/minic.ssa > /tmp/minic.s   &&
 cc /tmp/minic.s $flags
 
 if test $? -ne 0
